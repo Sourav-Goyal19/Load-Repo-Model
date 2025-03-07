@@ -1,11 +1,12 @@
 import re
 from flask import Flask, jsonify, request
 from gitingest import ingest
+from flask_cors import CORS
 from graphs.query_graph import app as query_graph
 from langchain_core.messages import HumanMessage
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/tree", methods=["GET"])
 def get_tree():
@@ -65,4 +66,4 @@ def process_query():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=4040)
