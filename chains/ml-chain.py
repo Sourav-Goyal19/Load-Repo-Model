@@ -8,21 +8,24 @@ from langchain_anthropic import ChatAnthropic
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.document_loaders import WebBaseLoader
 from dataset import dataset
+from dotenv import load_dotenv
+
+load_dotenv();
 
 # llm = ChatGroq(
 #     temperature=0,
 #     model_name="llama-3.3-70b-versatile",
-#     api_key="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",
+#     api_key=os.getenv("GROQ_API_KEY"),
 # )
 
 llm = ChatAnthropic(
     model="claude-3-5-sonnet-latest",
     temperature=0,
-    api_key="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",
+    api_key=os.getenv("CLAUDE_API_KEY"),
 )
 
 # llm = ChatGoogleGenerativeAI(
-#     model=("gemini-1.5-pro"), api_key="AIzaSyAjJ5MiuN7D4stHeErl_6qeRq7FYN2yIqM"
+#     model=("gemini-1.5-pro"), api_key=os.getenv("GOOGLE_API_KEY")
 # )
 
 
